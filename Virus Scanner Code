@@ -1,0 +1,12 @@
+import hashlib
+import os
+filename = 'hash.txt'
+sha256_hash = 'f10b5449e79341e5f062591072b9de559070ac4e331ae790c13f094fdb1a8d27'
+file_to_test = hashlib.sha256(open(filename, 'rb').read()).hexdigest()
+if sha256_hash == file_to_test:
+    #delete file
+    os.path.exists("hash.txt")
+    os.remove("hash.txt")
+    print('This file is malicious')
+else:
+    print('This file is not malicious')
